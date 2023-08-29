@@ -5,7 +5,7 @@ This tool was created for dataset cleaning purposes. It is used to quickly delet
 
 # Usage
 
-    python --path <path to dataset>
+    python main.py --path <path to dataset>
 Dataset folder should look like this
 
     Dataset
