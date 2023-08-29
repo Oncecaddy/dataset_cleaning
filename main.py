@@ -1,8 +1,14 @@
 import cv2
 import os
 from yolo_show_annos import get_anno
+import argparse
 
-path = 'C:/Users/batuhan/Desktop/first 5000 renamed/'
+parser = argparse.ArgumentParser(description='A tool for cleaning a dataset quickly (YOLO format only)')
+parser.add_argument('--path', type=str, required=True, help='Path for dataset containing images and annotations')
+
+args = parser.parse_args()
+
+path = args.path
 
 files = os.listdir(path)
 paths = []
@@ -14,8 +20,8 @@ for file in files:
     if arr[0] not in paths:
         paths.append(arr[0])
 
-for plain_path in paths:
-    image = get_anno(path + plain_path)
+for i, plain_path in enumerate(paths):
+    image = get_anno(path + plain_path, i)
     cv2.imshow('image', image)
 
     k = cv2.waitKey(0)

@@ -2,7 +2,7 @@ import cv2
 import os
 
 
-def get_anno(path):
+def get_anno(path, i):
 
     image = cv2.imread(path + '.jpg')
 
@@ -61,6 +61,7 @@ def get_anno(path):
 
         image = cv2.rectangle(image, start, end, color, thickness)
         image = cv2.putText(image, str(class_name), (x1, y1 - 5), font, fontScale, color, 1, cv2.LINE_AA)
+        image = cv2.putText(image, str(i), (5, 20), font, fontScale, (255, 255, 255), 1, cv2.LINE_AA)
 
     return image
 
